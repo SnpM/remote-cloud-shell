@@ -2,7 +2,7 @@
 
 ## Overview
 
-Google Cloud Shell is a cloud-based command-line environment that provides instant access to a Debian instance with 5GB of persistent storage and a variety of pre-installed tools.
+Google Cloud Shell provides instant access to a Debian instance with 5GB of persistent storage and a variety of pre-installed tools.
 
 **Remote - Cloud Shell** is a VS Code extension that enables users to connect to their Google Cloud Shell instance as their remote development environment. It generates SSH commands and configs and integrates these with Remote-SSH configuration.
 
