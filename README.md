@@ -1,71 +1,32 @@
-# remote-cloud-shell README
+# Remote - Cloud Shell
 
-This is the README for your extension "remote-cloud-shell". After writing up a brief description, we recommend including the following sections.
+## Overview
 
-## Features
+Google Cloud Shell is a cloud-based command-line environment that provides instant access to a Debian instance with 5GB of persistent storage and a variety of pre-installed tools.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+**Remote - Cloud Shell** is a VS Code extension that enables users to connect to their Google Cloud Shell instance as their remote development environment. It generates SSH commands and configs and integrates these with Remote-SSH configuration.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Install the extension from the VS Code marketplace.
+2. Ensure you have the [**Google Cloud SDK (`gcloud`)**](https://cloud.google.com/sdk/docs/install) installed and authenticated.
+3. Install the [**Remote - SSH**](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension, which this extension depends on.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
 
-## Requirements
+1. Open VS Code.
+2. Use the **Command Palette** (`Ctrl+Shift+P`) to run `Remote-Cloud-Shell: Add ssh ssh host...`
+3. Copy the provided SSH command into the input box.
+4. Run the `Remote-SSH: Connect to Host` command with your new Google Cloud Shell configuration.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+![alt text](add_host.png)
 
-## Extension Settings
+## Troubleshooting
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+If gcloud is not configured in your PATH environment variable, set the below user setting to the gcloud bin folder.
 
-For example:
+`"remote-cloud-shell.gcloudPath": "/folder/that/contains/gcloud/tool"`
 
-This extension contributes the following settings:
+## License
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This project is licensed under the MIT License.
