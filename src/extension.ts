@@ -55,21 +55,30 @@ async function addHost(configProvider: SshConfigProvider) {
     // Connect to host in config
     vscode.commands.executeCommand('opensshremotes.addNewSshHost');
 }
+async function updateConfig(configProvider: SshConfigProvider) {
+	await showConfig(configProvider);
+    // Connect to host in config
+    vscode.commands.executeCommand('opensshremotes.openConfigFile');
+}
 
 export function activate(context: vscode.ExtensionContext) {
-	const getConfigGcloud = vscode.commands.registerCommand('remote-cloud-shell.get-config-gcloud', () => {
-		showConfig(new gcloudShell.GcloudConfigProvider());
-	});
+	// const getConfigGcloud = vscode.commands.registerCommand('remote-cloud-shell.get-config-gcloud', () => {
+	// 	showConfig(new gcloudShell.GcloudConfigProvider());
+	// });
 	const getCommandGcloud = vscode.commands.registerCommand('remote-cloud-shell.get-command-gcloud', () => {
 		showCommand(new gcloudShell.GcloudConfigProvider());
 	});
 	const addHostGcloud = vscode.commands.registerCommand('remote-cloud-shell.add-host-gcloud', () => {
 		addHost(new gcloudShell.GcloudConfigProvider());
 	});
+	const updateConfigGcloud = vscode.commands.registerCommand('remote-cloud-shell.update-config-gcloud', () => {
+		updateConfig(new gcloudShell.GcloudConfigProvider());
+	});
 
-	context.subscriptions.push(getConfigGcloud);
+	//context.subscriptions.push(getConfigGcloud);
 	context.subscriptions.push(getCommandGcloud);
 	context.subscriptions.push(addHostGcloud);
+	context.subscriptions.push(updateConfigGcloud);
 }
 
 // This method is called when your extension is deactivated

@@ -14,18 +14,18 @@
   "contributes": {
     "commands": [
       {
-        "command": "remote-cloud-shell.get-config-gcloud",
-        "title": "Get config for Google Cloud (gcloud)",
-        "category": "Remote-Cloud-Shell"
-      },
-      {
         "command": "remote-cloud-shell.get-command-gcloud",
-        "title": "Get command for Google Cloud (gcloud)",
+        "title": "Get ssh command for Google Cloud (gcloud)",
         "category": "Remote-Cloud-Shell"
       },
       {
         "command": "remote-cloud-shell.add-host-gcloud",
-        "title": "Add Remote-SSH host for Google Cloud (gcloud)",
+        "title": "Add ssh host for Google Cloud (gcloud)",
+        "category": "Remote-Cloud-Shell"
+      },
+      {
+        "command": "remote-cloud-shell.update-config-gcloud",
+        "title": "Update ssh config for Google Cloud (gcloud)",
         "category": "Remote-Cloud-Shell"
       }
     ]
