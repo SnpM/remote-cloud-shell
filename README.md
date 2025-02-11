@@ -19,7 +19,7 @@ Google Cloud Shell provides instant access to a Debian instance with 5GB of pers
 3. Copy the provided SSH command into the input box.
 4. Run the `Remote-SSH: Connect to Host` command with your new Google Cloud Shell configuration.
 
-![alt text](add_host.png)
+![Adding new host to SSH configurations](https://github.com/user-attachments/assets/c27a8c37-b62c-4e4a-93fc-5dcc02cd437b)
 
 ## Troubleshooting
 
