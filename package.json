@@ -14,8 +14,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "remote-cloud-shell.helloWorld",
-        "title": "Hello World"
+        "command": "remote-cloud-shell.get-config-gcloud",
+        "title": "Get config for Google Cloud (gcloud)",
+        "category": "Remote-Cloud-Shell"
+      },
+      {
+        "command": "remote-cloud-shell.get-command-gcloud",
+        "title": "Get command for Google Cloud (gcloud)",
+        "category": "Remote-Cloud-Shell"
+      },
+      {
+        "command": "remote-cloud-shell.add-host-gcloud",
+        "title": "Add Remote-SSH host for Google Cloud (gcloud)",
+        "category": "Remote-Cloud-Shell"
       }
     ]
   },
@@ -37,5 +48,8 @@
     "typescript": "^5.7.3",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1"
-  }
+  },
+  "extensionDependencies": [
+  "ms-vscode-remote.remote-ssh"
+  ]
 }
