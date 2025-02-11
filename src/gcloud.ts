@@ -6,12 +6,25 @@ import { execSync } from 'child_process';
 import {SshConfig, SshConfigProvider} from './core';
 
 export class GcloudConfigProvider implements SshConfigProvider {
+    private gcloudPath: string;
+    constructor() {
+        // Retrieve user-specified gcloud path from settings
+        const config = vscode.workspace.getConfiguration('remote-cloud-shell');
+        this.gcloudPath = config.get<string>('gcloudPath', '');
+    }
+
+    private gcloud(): string {
+        const command = "gcloud"
+        return this.gcloudPath ? path.join(this.gcloudPath, command) : command;
+    }
+
     async getSshConfig(): Promise<SshConfig | null> {
         return this._getSshConfig();
     }
     _getSshConfig(): SshConfig | null {
         // Run gcloud command to get the dry-run output
-        const command = "gcloud cloud-shell ssh --authorize-session --dry-run";
+        const command = `${this.gcloud()} cloud-shell ssh --authorize-session --dry-run`;
+        console.debug(`Running command: ${command}`);
         let output = null;
         try {
             output = execSync(command, { encoding: 'utf-8' });

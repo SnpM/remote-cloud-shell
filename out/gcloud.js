@@ -35,14 +35,26 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GcloudConfigProvider = void 0;
 const vscode = __importStar(require("vscode"));
+const path = __importStar(require("path"));
 const child_process_1 = require("child_process");
 class GcloudConfigProvider {
+    gcloudPath;
+    constructor() {
+        // Retrieve user-specified gcloud path from settings
+        const config = vscode.workspace.getConfiguration('remote-cloud-shell');
+        this.gcloudPath = config.get('gcloudPath', '');
+    }
+    gcloud() {
+        const command = "gcloud";
+        return this.gcloudPath ? path.join(this.gcloudPath, command) : command;
+    }
     async getSshConfig() {
         return this._getSshConfig();
     }
     _getSshConfig() {
         // Run gcloud command to get the dry-run output
-        const command = "gcloud cloud-shell ssh --authorize-session --dry-run";
+        const command = `${this.gcloud()} cloud-shell ssh --authorize-session --dry-run`;
+        console.debug(`Running command: ${command}`);
         let output = null;
         try {
             output = (0, child_process_1.execSync)(command, { encoding: 'utf-8' });

@@ -12,21 +12,32 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Remote - Cloud Shell Settings",
+      "properties": {
+        "remote-cloud-shell.gcloudPath": {
+          "type": "string",
+          "default": "",
+          "description": "Manually specify the gcloud bin folder path if it is not in the system PATH. This string is prepended to the gcloud command."
+        }
+      }
+    },
     "commands": [
       {
         "command": "remote-cloud-shell.get-command-gcloud",
-        "title": "Get ssh command for Google Cloud (gcloud)",
-        "category": "Remote-Cloud-Shell"
+        "title": "Get ssh command from Google Cloud (gcloud)",
+        "category": "Remote-Cloud Shell"
       },
       {
         "command": "remote-cloud-shell.add-host-gcloud",
-        "title": "Add ssh host for Google Cloud (gcloud)",
-        "category": "Remote-Cloud-Shell"
+        "title": "Add ssh host from Google Cloud (gcloud)",
+        "category": "Remote-Cloud Shell"
       },
       {
         "command": "remote-cloud-shell.update-config-gcloud",
-        "title": "Update ssh config for Google Cloud (gcloud)",
-        "category": "Remote-Cloud-Shell"
+        "title": "Update ssh config from Google Cloud (gcloud)",
+        "category": "Remote-Cloud Shell"
       }
     ]
   },
